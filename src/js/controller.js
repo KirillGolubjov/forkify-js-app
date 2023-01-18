@@ -10,10 +10,6 @@ import addRecipeView from './views/addRecipeView.js';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-// if (module.hot) {
-//   module.hot.accept();
-// }
-
 const controlRecepes = async function () {
   try {
     const id = window.location.hash.slice(1);
@@ -62,7 +58,7 @@ controlSearchResults();
 
 const controlPagination = function (goToPage) {
   // 1) Render NEW results
-  // resultsView.render(model.state.search.results)
+
   resultsView.render(model.getSearchResultsPage(goToPage));
 
   // 2) Render NEW pagination buttons
@@ -73,7 +69,6 @@ const constrolServings = function (newServings) {
   // Update the recipe servings (in state)
   model.updateServings(newServings);
   // Update the recipe view
-  // recipeView.render(model.state.recipe);
   recipeView.update(model.state.recipe);
 };
 
